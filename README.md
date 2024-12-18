@@ -77,9 +77,4 @@ The creation of the **binary feature indicating toll road presence** remains a c
 6. **Results and Insights:**  
    - Compare accident rates on toll and free roads.  
    - Visualize trends and key findings to support the hypotheses.  
-   - Provide actionable recommendations for toll road placement based on accident patterns.  
-
----
-
-## Contact Information  
-For questions or suggestions, please reach out via GitHub.  
+   - Provide actionable recommendations for toll road placement based on accident patterns.   
