@@ -1,5 +1,3 @@
----
-
 # Research Project: Analysis and Modeling of Accident Frequency and Severity on Russian Toll Roads
 
 ## Project Description
@@ -21,7 +19,6 @@ Example data for one month and one region can be found in:
 **Output:**  
 Raw XML files stored monthly for each region (e.g., `ДТП_1_2015_01.xml`).  
 
----
 
 ### 2. **Data Aggregation**  
 The XML files were combined and transformed into a single CSV file (~1.5 million observations) using:  
@@ -30,7 +27,6 @@ The XML files were combined and transformed into a single CSV file (~1.5 million
   - Extracts relevant information, such as location, accident type, weather conditions, and participant attributes.  
   - Saves the aggregated output in **`processed_data.csv`**.
 
----
 
 ### 3. **Data Preprocessing**  
 Initial preprocessing and feature engineering were performed using:  
@@ -42,7 +38,6 @@ Initial preprocessing and feature engineering were performed using:
 **Key Next Step:**  
 The creation of the **binary feature indicating toll road presence** remains a critical task, as this variable is central to the thesis analysis.
 
----
 
 ## Repository Structure  
 - **parser.py**: Script for extracting XML files from the traffic statistics portal.  
@@ -50,13 +45,8 @@ The creation of the **binary feature indicating toll road presence** remains a c
 - **example_data_cards.pdf**: Human-readable example of raw accident data.  
 - **example_data_cards.xml**: Sample raw XML data for one region and month.  
 - **reading_XML_files.ipynb**: Script to transform and aggregate XML data into a single CSV file.  
-- **getting_started_with_the_data.ipynb**: Script for initial data cleaning, preprocessing, and feature engineering.  
-- **storage/**: Directory for raw XML files.  
-- **processed_data.csv**: Combined dataset containing all processed accidents.
+- **getting_started_with_the_data.ipynb**: Script for initial data cleaning, preprocessing, and feature engineering.   
 
----
-
----
 
 ## Next Steps  
 
@@ -93,7 +83,3 @@ The creation of the **binary feature indicating toll road presence** remains a c
 
 ## Contact Information  
 For questions or suggestions, please reach out via GitHub.  
-
----
-
-Let me know if you'd like to add more details or improve specific sections! 🚀
