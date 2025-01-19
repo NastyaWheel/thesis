@@ -24,16 +24,21 @@ Raw XML files stored monthly for each region (e.g., `ДТП_1_2015_01.xml`).
 The XML files were combined and transformed into a single CSV file (~1.5 million observations) using:  
 - **`reading_XML_files.ipynb`**:  
   - Converts participant-level data to accident-level data.  
-  - Extracts relevant information, such as location, accident type, weather conditions, and participant attributes.  
+  - Extracts relevant information, such as location, accident type, weather conditions, and participant attributes.
+  - Creation of new features based on existing accident attributes.  
   - Saves the aggregated output in **`processed_data.csv`**.
 
 
 ### 3. **Data Preprocessing**  
 Initial preprocessing and feature engineering were performed using:  
 - **`getting_started_with_the_data.ipynb`**:  
-  - Removal of non-informative features.  
-  - Handling missing values for critical variables.  
-  - Creation of new features based on existing accident attributes.  
+  - Removal of non-informative features.
+  - Analyzing and processing missing data.  
+  - Filling missing values in the key column 'dor' based on coordinates (currently in progress).
+  - Create the **target binary variable**: whether the accident occurred on a toll road (currently in progress).
+  - Forming the final dataset (currently in progress; so far, only the part with the target variable equal to 1 has been created).
+  - Renaming columns for better readability.
+
 
 **Key Next Step:**  
 The creation of the **binary feature indicating toll road presence** remains a critical task, as this variable is central to the thesis analysis.
@@ -51,27 +56,23 @@ The creation of the **binary feature indicating toll road presence** remains a c
 ## Next Steps  
 
 1. **Data Processing and Feature Engineering:**  
-   - Use accident coordinates to create the **key binary feature**: whether the accident occurred on a toll road.  
-   - Create an additional feature to determine if the accident occurred **within a populated area**.  
-   - Filter the dataset to retain only accidents **outside populated areas** (as toll roads are located outside cities).  
-   - Remove **non-informative features** to streamline the dataset.  
+   - Create the **target binary variable**: whether the accident occurred on a toll road.    
+   - Forming the final dataset: filter the dataset to retain only accidents **outside populated areas** (as toll roads are located outside cities).  
+   - Remove **non-informative features** to streamline the dataset.
+   - Incorporate information about the **opening time** of toll roads to identify pre- and post-opening periods for analysis.  
 
-2. **Dataset Segmentation:**  
-   - Build a separate dataset for **toll roads** and their **free alternatives**.  
-   - Incorporate information about the **opening time** of toll roads to identify pre- and post-opening periods for analysis.
-
-3. **Hypothesis Testing:**  
+2. **Hypothesis Testing:**  
    - Test the hypothesis:  
      **"The introduction of alternative toll roads reduces the accident rate on the route."**  
    - Test the hypothesis:  
      **"The accident rate on toll roads is lower than on their free alternatives."**  
 
-4. **Accident Forecasting:**  
+3. **Accident Forecasting:**  
    - Develop predictive models to forecast accident rates on:  
      - **Recently opened toll roads.**  
      - **Toll roads scheduled to open soon.**  
 
-5. **Neural Network Analysis (Optional Extension):**  
+4. **Neural Network Analysis (Optional Extension):**  
    - Implement a neural network to identify **road segments** where the construction of toll roads could be effective in reducing accident rates.  
 
 6. **Results and Insights:**  
