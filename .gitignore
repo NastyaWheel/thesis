@@ -1,4 +1,12 @@
 trueGibddParser/
 archive/
-DTP_DATA_CORRECT.csv
-DTP_DATA_CORRECT_PROCESSED.csv
+drafts/
+DTP_DATA_2025.csv
+DTP_DATA_2025_PROCESSED.csv
+project_proposal/
+gibdd_parser/
+!gibdd_parser/parser.py
+!gibdd_parser/settings.py
+
+creating_final_dataset.ipynb
+finding_toll_and_free_pair_roads.ipynb
