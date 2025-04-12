@@ -1,13 +1,17 @@
 from pathlib import Path
 
-STORAGE_DIR: Path = Path("storage")
+STORAGE_DIR: Path = Path(__file__).resolve().parent / "storage"
+
+script_dir = Path(__file__).resolve().parent
+LOG_FILE = script_dir / "errors.log"
 
 REQUEST_FILE_ID_URL: str = "http://stat.gibdd.ru/export/getCardsXML"
 
 REQUEST_FILE_CONTENT_URL: str = "http://stat.gibdd.ru/getFileById?data="
 
 REQUEST_HEADER: dict[str, str] = {
-    "Content-type": "application/json; charset=UTF-8"
+    "Content-type": "application/json; charset=UTF-8",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
 }
 
 INTERNAL_FILENAME: str = "Карточки ДТП.xml"
@@ -28,9 +32,7 @@ REGIONS: list[int] = [
     18,
     19,
     20,
-    21,
     22,
-    23,
     24,
     25,
     26,
@@ -48,7 +50,6 @@ REGIONS: list[int] = [
     40,
     41,
     42,
-    43,
     44,
     45,
     46,
@@ -58,7 +59,6 @@ REGIONS: list[int] = [
     52,
     53,
     54,
-    55,
     56,
     57,
     58,
@@ -74,7 +74,6 @@ REGIONS: list[int] = [
     70,
     71,
     73,
-    74,
     75,
     76,
     77,
@@ -104,3 +103,5 @@ REGIONS: list[int] = [
     71140,
     10011,
 ]
+
+# REGIONS: list[int] = [30, 45, 46, 77, 90, 10011]
