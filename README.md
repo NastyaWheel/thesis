@@ -35,10 +35,10 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 ## Current Status
 The project is still in progress. Data extraction, initial preprocessing, and feature engineering have been completed, but further work is required, particularly to create the **key binary variable** identifying whether a road is toll-based.
 
+
 ## Workflow Overview  
 ### 1. **Data Extraction**  
-Accident data from **January 2015 to March 2025** were collected from the [stat.gibdd.ru](http://stat.gibdd.ru) website using `gibdd_parser/`.
-Example data for one month and one region can be found in `example_data_cards.pdf` (human-readable format) and `example_data_cards.xml` (raw XML format).  
+Accident data from **January 2015 to March 2025** were collected from the [stat.gibdd.ru](http://stat.gibdd.ru) website using `gibdd_parser/`. Example data for one month and one region can be found in `example_data_cards.pdf` (human-readable format) and `example_data_cards.xml` (raw XML format).  
 
 **Output:** raw XML files stored monthly for each region (e.g., `ДТП_1_2015_01.xml`).  
 
@@ -64,9 +64,9 @@ Initial preprocessing and feature engineering were performed using `getting_star
 
 ## Next Steps  
 
-### 4. **Data Processing**
 
-- Creating two datasets were constructed based on raw traffic accident data in Russia:
+### 4. **Data Processing**
+Creating two datasets were constructed based on raw traffic accident data in Russia:
 
 1. Panel Dataset
 - Unit of observation: road section × month
@@ -75,8 +75,8 @@ Initial preprocessing and feature engineering were performed using `getting_star
 2. Accident-level Dataset
 - Unit of observation: individual accident
 - Purpose: analysis of accident severity
-
 - Adding a binary variable `is_toll` indicating the road type
+
 
 ### 5. Hypotheses Testing
 Methods applied:
