@@ -20,7 +20,7 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 ## Repository Structure
 
 ```text
-├── gibdd_parser/                 # Directory containing XML parsing logic
+├── gibdd_parser/               # Directory containing XML parsing logic
 │  ├── parser.py                # Script for extracting XML files from the traffic statistics portal
 │  └── settings.py              # Configuration file with parameters such as request URLs, headers, and regions
 
@@ -28,8 +28,10 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 ├── example_data_cards.xml       # Sample raw XML data for one region and month
 ├── reading_XML_files.ipynb      # Script to transform and aggregate XML data into a single CSV file
 ├── getting_started_with_the_data.ipynb  # Script for initial data cleaning, preprocessing, and feature engineering
+
 ├── .gitignore                   # Git ignored files
-└── README.md                    # Project documentation
+├── README.md                    # Project documentation
+└── thesis_concept_overview.pptx # Concept presentation for the project
 ```
 
 ## Current Status
