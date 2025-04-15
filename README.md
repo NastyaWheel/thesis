@@ -9,8 +9,11 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 ### Hypotheses
 
 (1.1) The average number of accidents per month is lower on toll roads than on free roads.
+
 (1.2) The factors influencing the number of accidents differ between toll and free roads.
+
 (2.1) The probability of a more severe accident outcome is lower on toll roads than on free roads.
+
 (2.2) The factors influencing accident severity differ between toll and free roads.
 
 
