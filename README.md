@@ -69,8 +69,8 @@ Initial preprocessing and feature engineering were performed using `getting_star
 
 ### 4. **Data Processing**
 - Creating two datasets were constructed based on raw traffic accident data in Russia:
-  1. **Panel Dataset** (unit of observation ── road section × month, for **analysis of accident frequency**)
-  2. **Accident-level Dataset** (unit of observation ── individual accident, for **analysis of accident severity**)
+  1. panel dataset (unit of observation ─ road section × month, for **analysis of accident frequency**)
+  2. accident-level dataset (unit of observation ─ individual accident, for **analysis of accident severity**)
 
 - Adding a binary variable `is_toll` indicating the road type
 
