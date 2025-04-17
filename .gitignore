@@ -8,7 +8,8 @@ project_proposal/
 gibdd_parser/
 !gibdd_parser/parser.py
 !gibdd_parser/settings.py
-
+toll_map.html
+visualization.ipynb
 
 # creating_final_dataset.ipynb
 # finding_toll_and_free_pair_roads.ipynb
