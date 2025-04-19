@@ -31,7 +31,8 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 
 ├── .gitignore                   # Git ignored files
 ├── README.md                    # Project documentation
-└── thesis_concept_overview.pdf  # Concept presentation for the project
+├── thesis_concept_overview.pdf  # Concept presentation for the project
+└── variables_description.md     # Description of project features
 ```
 
 ## Current Status
