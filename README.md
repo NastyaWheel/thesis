@@ -1,20 +1,16 @@
-# Research Project: Research and Modeling of Accident Frequency and Severity on Toll Highways in Russia
+# Research Project: Research and Modeling of Accident Severity on Toll Highways in Russia
 
-This repository contains materials, scripts, and interim results for my thesis titled **"Research and Modeling of Accident Frequency and Severity on Toll Highways in Russia
-"** The goal of the study is to explore accident patterns on toll and free roads across Russia, focusing on their frequency and severity.
+This repository contains materials, scripts, and interim results for my thesis titled **"Research and Modeling of Accident Severity on Toll Highways in Russia
+"** The goal of the study is to explore accident patterns on toll and free roads across Russia, focusing on their severity.
 
 ## Project Description
-This project investigates the impact of road type (toll vs free) on the frequency and severity of traffic accidents on rural roads in Russia. The study combines classical econometric methods with modern machine learning approaches to explore key factors influencing road safety and to build predictive models.
+This project investigates the impact of road type (toll vs free) on the severity of traffic accidents on rural roads in Russia. The study combines classical econometric methods with modern machine learning approaches to explore key factors influencing road safety and to build predictive models.
 
 ### Hypotheses
 
-(1.1) The average number of accidents per month is lower on toll roads than on free roads.
+(1) The probability of a more severe accident outcome is lower on toll roads than on free roads.
 
-(1.2) The factors influencing the number of accidents differ between toll and free roads.
-
-(2.1) The probability of a more severe accident outcome is lower on toll roads than on free roads.
-
-(2.2) The factors influencing accident severity differ between toll and free roads.
+(2) The factors influencing accident severity differ between toll and free roads.
 
 
 ## Repository Structure
@@ -24,6 +20,10 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 │  ├── parser.py                # Script for extracting XML files from the traffic statistics portal
 │  └── settings.py              # Configuration file with parameters such as request URLs, headers, and regions
 
+├── gibdd_parser/               # Directory containing working with accident-level data
+│  ├── severity_hypotheses.ipynb  # Script to check hypotheses
+│  └── severity_model.ipynb     # Script to train the model predict severity of accidents
+
 ├── example_data_cards.pdf       # Human-readable example of raw accident data
 ├── example_data_cards.xml       # Sample raw XML data for one region and month
 ├── reading_XML_files.ipynb      # Script to transform and aggregate XML data into a single CSV file
@@ -31,8 +31,7 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 
 ├── .gitignore                   # Git ignored files
 ├── README.md                    # Project documentation
-├── thesis_concept_overview.pdf  # Concept presentation for the project
-└── variables_description.md     # Description of project features
+└── variables_description.md     # Description of all project features
 ```
 
 ## Current Status
@@ -69,27 +68,20 @@ Initial preprocessing and feature engineering were performed using `getting_star
 
 
 ### 4. **Data Processing**
-- Creating two datasets were constructed based on raw traffic accident data in Russia:
-  1. panel dataset (unit of observation ─ road section × month, for **analysis of accident frequency**)
-  2. accident-level dataset (unit of observation ─ individual accident, for **analysis of accident severity**)
-
+- Creating accident-level dataset (unit of observation ─ individual accident, for **analysis of accident severity**)
 - Adding a binary variable `is_toll` indicating the road type
 
 
 ### 5. Hypotheses Testing
 Methods applied:
-- Panel Regression with Fixed Effects
-- Negative Binomial Regression (in case of overdispersion)
 - Multinomial Logit Model (for accident severity analysis)
 - Machine Learning models: Random Forest, Gradient Boosting
-- SHAP analysis for feature importance
-- Evaluation metrics: MAE/MSE for frequency models, Accuracy/F1-score for severity models
+- Feature importance
+- Evaluation metrics: Accuracy and F1-score
 
 
 ### 6. Analyzing "hot spots"
 - Identifing high-accident locations ("hot spots") using the DBSCAN algorithm based on accident coordinates
-- Negative sampling: generating observations without accidents for modeling accident probability
-- Training separate machine learning models for toll and free road "hot spots"
-- SHAP analysis to identify the most important factors influencing accident probability
-- Comparison of accident risk factors between toll and free road sections with high accident concentration
-- Separate clustering for toll and free roads
+- Testing hypotheses
+- Negative sampling: using noise
+- Training machine learning model for to predict "hot spots" toll and free road
