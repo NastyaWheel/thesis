@@ -66,4 +66,36 @@
 
 ## Derived Features During Work
 
-
+- `YEAR` _[datetime, derived from `DATE`]_: Year when the accident occurred.
+- `MONTH` _[datetime, derived from `DATE`]_: Month when the accident occurred.
+- `WEEKDAY` _[datetime, derived from `DATE`]_: Day of the week the accident occurred (0=Monday, 6=Sunday).
+- `SEASON` _[categorical, derived from `DATE`]_: Season derived from month (1=Winter, 2=Spring, 3=Summer, 4=Autumn).
+- `is_WEEKEND` _[binary, derived from `DATE`]_: Indicates whether the accident occurred on a weekend (Saturday or Sunday).
+- `HOUR` _[datetime, derived from `TIME`]_: Hour of the day when the accident occurred.
+- `is_NIGHT` _[binary, derived from `HOUR`]_: Indicates whether the accident occurred at night (22:00–6:00).
+- `is_PEAK_HOUR` _[binary, derived from `HOUR`]_: Indicates whether the accident occurred during peak traffic hours (e.g., 7–9 a.m. or 4–6 p.m.).
+- `road_rank_cat` _[categorical, derived from `road_rank`]_: Categorical code representing the functional rank or importance of the road.
+- `road_defects_cat` _[categorical, derived from `road_defects`]_: Categorized type of road network defects near or at the accident site.
+- `traffic_changes_cat` _[categorical, derived from `traffic_changes`]_: Categorized description of changes in traffic conditions at the moment of the accident.
+- `road_surface_cat` _[categorical, derived from `road_surface`]_: Categorical indicator of the road surface condition.
+- `TYPE_cat` _[categorical, derived from `TYPE`]_: Categorical representation of the type of accident (e.g., collision, pedestrian, rollover).
+- `out_of_town` _[binary, derived from `street_rank`]_: Indicates whether the accident occurred outside an urban area.
+- `street_rank_cat` _[categorical, derived from `street_rank`]_: Categorical code for the type or importance of the street within the locality.
+- `weather_cat` _[categorical, derived from `weather`]_: Categorical description of the weather conditions during the accident.
+- `adj_objects_cat` _[categorical, derived from `adj_objects`]_: Categorical variable describing objects adjacent to the accident scene.
+- `cause_factors_cat` _[categorical, derived from `cause_factors`]_: Categorized list of contributing or causal factors in the accident.
+- `crossing_violation` _[binary, derived from `violations`]_: Indicates whether the accident involved a violation at a pedestrian crossing, railway crossing, or tram stop.
+- `impaired_driving` _[binary, derived from `violations`]_: Indicates driving under the influence of alcohol, drugs, or refusal to undergo medical examination.
+- `interference_violation` _[binary, derived from `violations`]_: Indicates external factors interfering with driving such as phone use, fatigue, or visibility issues.
+- `license_violation` _[binary, derived from `violations`]_: Indicates the driver had no proper license, category, or legal right to drive the vehicle.
+- `maneuver_violation` _[binary, derived from `violations`]_: Indicates improper maneuvering, including unsafe lane changes, turns, or failure to give way.
+- `other_violation` _[binary, derived from `violations`]_: Covers miscellaneous traffic rule violations not belonging to more specific categories.
+- `pedestrian_violation` _[binary, derived from `violations`]_: Indicates a violation committed by a pedestrian (e.g., crossing in the wrong place or intoxicated walking).
+- `sudden_appearance_violation` _[binary, derived from `violations`]_: Indicates a pedestrian or vehicle appeared suddenly in the roadway, causing a hazard.
+- `traffic_control_violation` _[binary, derived from `violations`]_: Involves disobedience of signals, signs, speed limits, or failure to yield to emergency vehicles.
+- `transport_violation` _[binary, derived from `violations`]_: Indicates improper transport of people, children, or goods (e.g., lack of seatbelt, child seat).
+- `vehicle_tech_violation` _[binary, derived from `violations`]_: Involves operating a vehicle in a technically faulty or unfit condition.
+- `wrong_way` _[binary, derived from `violations`]_: Indicates driving in the wrong direction or entering restricted lanes.
+- `lighting_cat` _[categorical, derived from `lighting`]_: Categorized lighting condition at the time and place of the accident.
+- `site_objects_cat` _[categorical, derived from `site_objects`]_: Categorical representation of physical site elements at the accident location.
+- `severity` _[categorical, derived from `injury_severity`]_: Collapsed injury severity class (light, medium, severe) for the accident.
