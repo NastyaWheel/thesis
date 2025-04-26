@@ -1,0 +1,101 @@
+# Feature Descriptions
+
+## Raw XML Features
+
+- `REGION` _[binary]_: Region where the traffic accident occurred.
+- `DATE` _[datetime]_: Date when the traffic accident occurred.
+- `TIME` _[datetime]_: Time of the accident.
+- `ID` _[numeric]_: Unique identifier of the accident.
+- `TYPE` _[categorical]_: Type of road traffic accident.
+- `n_VEHICLES` _[numeric]_: Number of vehicles involved in the accident.
+- `n_PARTICIPANTS` _[numeric]_: Number of participants involved in the accident (drivers, pedestrians, etc.).
+- `n_DEATHS` _[numeric]_: Number of fatalities in the accident.
+- `n_INJURED` _[numeric]_: Number of people injured in the accident.
+- `COORD_L` _[numeric]_: Latitude of the accident location.
+- `COORD_W` _[numeric]_: Longitude of the accident location.
+- `NP` _[categorical]_: Human settlement (town/village) near the accident.
+- `road_name` _[categorical]_: Name of the road where the accident occurred.
+- `road_rank` _[categorical]_: Road significance (e.g., primary, secondary).
+- `road_category` _[categorical]_: Road category (e.g., federal, regional, etc.).
+- `road_km` _[numeric]_: Kilometer mark of the road where the accident occurred.
+- `road_m` _[numeric]_: Meter mark of the road where the accident occurred.
+- `road_defects` _[categorical]_: Road network maintenance defects (transport-operational condition issues).
+- `adj_objects` _[categorical]_: Road network objects located near the accident scene.
+- `site_objects` _[categorical]_: Road network objects directly at the accident site.
+- `road_surface` _[categorical]_: Road surface condition at the time of the accident.
+- `traffic_changes` _[categorical]_: Information about changes in traffic organization.
+- `cause_factors` _[categorical]_: Factors that influenced the accident (e.g., weather conditions, road defects).
+- `weather` _[categorical]_: Weather conditions during the accident.
+- `lighting` _[categorical]_: Lighting conditions at the accident location.
+
+## Derived/Aggregated Features
+
+- `vehicle_failure` _[binary]_: Vehicle had technical failures during the accident.
+- `non_private_vehicle` _[binary]_: A non-private vehicle was involved in the accident.
+- `russian_vehicle` _[binary]_: A Russian-made vehicle was involved in the accident.
+- `white_vehicle` _[binary]_: A white vehicle was present at the accident scene.
+- `black_vehicle` _[binary]_: A black vehicle was present at the accident scene.
+- `colored_vehicle` _[binary]_: A vehicle of other color was present at the accident scene.
+- `drunk_driver` _[binary]_: A driver was found to be intoxicated.
+- `female_driver` _[binary]_: A female driver participated in the accident.
+- `escaped` _[binary]_: A participant or pedestrian fled the accident scene.
+- `no_seatbelt_injury` _[binary]_: At least one injured participant was not wearing a seatbelt.
+- `n_drunk` _[numeric]_: Total number of intoxicated participants.
+- `n_children` _[numeric]_: Total number of child passengers using restraints.
+- `n_cyclists` _[numeric]_: Total number of cyclists involved.
+- `n_pedestrians` _[numeric]_: Total number of pedestrians involved.
+- `vehicle_age_min` _[numeric]_: Minimum vehicle age among all vehicles in the accident.
+- `vehicle_age_max` _[numeric]_: Maximum vehicle age among all vehicles in the accident.
+- `vehicle_age_avg` _[numeric]_: Average vehicle age among all vehicles in the accident.
+- `n_class_a` _[numeric]_: Number of A-class vehicles involved.
+- `n_class_b` _[numeric]_: Number of B-class vehicles involved.
+- `n_class_c` _[numeric]_: Number of C-class vehicles involved.
+- `n_class_d` _[numeric]_: Number of D-class vehicles involved.
+- `n_class_e` _[numeric]_: Number of E-class vehicles involved.
+- `n_class_s` _[numeric]_: Number of S-class vehicles involved.
+- `n_front_drive` _[numeric]_: Number of vehicles with front-wheel drive.
+- `n_rear_drive` _[numeric]_: Number of vehicles with rear-wheel drive.
+- `n_4wd` _[numeric]_: Number of vehicles with all-wheel drive.
+- `n_guilty` _[numeric]_: Total number of guilty objects (vehicles or pedestrians).
+- `guilty_share` _[numeric]_: Proportion of guilty objects to total vehicles.
+- `n_fatal_violations` _[numeric]_: Number of unique violations committed by guilty parties.
+- `guilty_exp_avg` _[numeric]_: Average experience (in years) of guilty drivers.
+- `exp_avg` _[numeric]_: Average driving experience of all drivers in the accident.
+- `violations` _[multilabel]_: Set of all violations (both fatal and concomitant) in the accident.
+- `injury_severity` _[multilabel]_: Set of all injury severities in the accident.
+
+## Derived Features During Work
+
+- `YEAR` _[datetime, derived from `DATE`]_: Year when the accident occurred.
+- `MONTH` _[datetime, derived from `DATE`]_: Month when the accident occurred.
+- `WEEKDAY` _[datetime, derived from `DATE`]_: Day of the week the accident occurred (0=Monday, 6=Sunday).
+- `SEASON` _[categorical, derived from `DATE`]_: Season derived from month (1=Winter, 2=Spring, 3=Summer, 4=Autumn).
+- `is_WEEKEND` _[binary, derived from `DATE`]_: Indicates whether the accident occurred on a weekend (Saturday or Sunday).
+- `HOUR` _[datetime, derived from `TIME`]_: Hour of the day when the accident occurred.
+- `is_NIGHT` _[binary, derived from `HOUR`]_: Indicates whether the accident occurred at night (22:00–6:00).
+- `is_PEAK_HOUR` _[binary, derived from `HOUR`]_: Indicates whether the accident occurred during peak traffic hours (e.g., 7–9 a.m. or 4–6 p.m.).
+- `road_rank_cat` _[categorical, derived from `road_rank`]_: Categorical code representing the functional rank or importance of the road.
+- `road_defects_cat` _[categorical, derived from `road_defects`]_: Categorized type of road network defects near or at the accident site.
+- `traffic_changes_cat` _[categorical, derived from `traffic_changes`]_: Categorized description of changes in traffic conditions at the moment of the accident.
+- `road_surface_cat` _[categorical, derived from `road_surface`]_: Categorical indicator of the road surface condition.
+- `TYPE_cat` _[categorical, derived from `TYPE`]_: Categorical representation of the type of accident (e.g., collision, pedestrian, rollover).
+- `out_of_town` _[binary, derived from `street_rank`]_: Indicates whether the accident occurred outside an urban area.
+- `street_rank_cat` _[categorical, derived from `street_rank`]_: Categorical code for the type or importance of the street within the locality.
+- `weather_cat` _[categorical, derived from `weather`]_: Categorical description of the weather conditions during the accident.
+- `adj_objects_cat` _[categorical, derived from `adj_objects`]_: Categorical variable describing objects adjacent to the accident scene.
+- `cause_factors_cat` _[categorical, derived from `cause_factors`]_: Categorized list of contributing or causal factors in the accident.
+- `crossing_violation` _[binary, derived from `violations`]_: Indicates whether the accident involved a violation at a pedestrian crossing, railway crossing, or tram stop.
+- `impaired_driving` _[binary, derived from `violations`]_: Indicates driving under the influence of alcohol, drugs, or refusal to undergo medical examination.
+- `interference_violation` _[binary, derived from `violations`]_: Indicates external factors interfering with driving such as phone use, fatigue, or visibility issues.
+- `license_violation` _[binary, derived from `violations`]_: Indicates the driver had no proper license, category, or legal right to drive the vehicle.
+- `maneuver_violation` _[binary, derived from `violations`]_: Indicates improper maneuvering, including unsafe lane changes, turns, or failure to give way.
+- `other_violation` _[binary, derived from `violations`]_: Covers miscellaneous traffic rule violations not belonging to more specific categories.
+- `pedestrian_violation` _[binary, derived from `violations`]_: Indicates a violation committed by a pedestrian (e.g., crossing in the wrong place or intoxicated walking).
+- `sudden_appearance_violation` _[binary, derived from `violations`]_: Indicates a pedestrian or vehicle appeared suddenly in the roadway, causing a hazard.
+- `traffic_control_violation` _[binary, derived from `violations`]_: Involves disobedience of signals, signs, speed limits, or failure to yield to emergency vehicles.
+- `transport_violation` _[binary, derived from `violations`]_: Indicates improper transport of people, children, or goods (e.g., lack of seatbelt, child seat).
+- `vehicle_tech_violation` _[binary, derived from `violations`]_: Involves operating a vehicle in a technically faulty or unfit condition.
+- `wrong_way` _[binary, derived from `violations`]_: Indicates driving in the wrong direction or entering restricted lanes.
+- `lighting_cat` _[categorical, derived from `lighting`]_: Categorized lighting condition at the time and place of the accident.
+- `site_objects_cat` _[categorical, derived from `site_objects`]_: Categorical representation of physical site elements at the accident location.
+- `severity` _[categorical, derived from `injury_severity`]_: Collapsed injury severity class (light, medium, severe) for the accident.
