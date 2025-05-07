@@ -1,6 +1,7 @@
 archive/
 data/
 drafts/
+text/
 
 gibdd_parser/
 !gibdd_parser/parser.py
