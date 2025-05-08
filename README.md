@@ -28,9 +28,11 @@ This project investigates the impact of road type (toll vs free) on the frequenc
 
 ├── severity/                    # Directory containing working with accident-level data
 │  ├── severity_hypotheses.ipynb # Script to check hypotheses
-│  └── severity_model.ipynb      # Script to train the model predict severity of accidents
+│  └── severity_model.ipynb      # Script to check hypotheses on "hot spots" and train models to predict severity and "hot spots"
 
 ├── frequency/                   # Directory containing working with panel data
+│  ├── frequency_hypotheses.ipynb # Script to check hypotheses on a full sample and on "hot spots"
+│  └── frequency_model.ipynb      # Script to train the model predict frequency of accidents
 
 ├── creating_final_dataset.ipynb # Constructe two datasets with different observations
 ├── example_data_cards.pdf       # Human-readable example of raw accident data
@@ -102,6 +104,8 @@ Work in `severity/`.
   - Hypotheses (2.1) and (2.2) confirmed for both full sample and «hot spots»
   - Model predicting «hot spots» achieved **0.85** accuracy and **0.80** F1-score on random obs
 
+  **Output:** ACCIDENTS_HOT_SPOTS.csv (as features for panel dataset, `severity_model.ipynb`)
+
 
 ### 3. **Work with panel data** (currently in progress)
 Work in `frequency/`.
@@ -121,6 +125,8 @@ Work in `frequency/`.
   - GridSearchCV
   - evaluation metrics: MAE and MSE
 
-#### Results (Expected):
-  - Hypotheses (1.1) and (1.2) confirmed
-  - Model predicting probability achieved over **0.80** MSE
+#### Results:
+  - Hypothesis (1.1) rejected, hypothesis (1.2) partially confirmed
+  - Due to the target being overfilled with zeros, we moved from a regression problem to a binary classification (predicting whether an accident will happen on the road or not, instead of predicting the number of accidents)
+  - Model for toll roads achieved **0.86** F1-score and **0.82** MCC (Matthews correlation coefficient)
+  - General model and model for free roads achieved **0.94** accuracy, but only **0.44** F1-score and **0.46** MCC due to the large class imbalance (the minor class makes up 0.069% of the sample) and data specificity (it is recommended to add additional variables that will help increase the separability of the data in the feature space)
